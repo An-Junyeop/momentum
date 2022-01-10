@@ -1,0 +1,90 @@
+#app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Clock */
+div#clock {
+    color: #fff;
+    font-size: 140px;
+    letter-spacing: -2px;
+    text-align: center;
+}
+
+/* User */
+#user {
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+    color: #fff;
+    font-size: 48px;
+    text-align: center;
+}
+#user form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#user input#user-name-input {
+    width: 100%;
+    height: 55px;
+    margin-top: 15px;
+    padding: 5px 0 8px 0;
+    background: none;
+    border: none;
+    border-bottom: 3px solid #fff;
+    color: #fff;
+    font-size: 40px;
+    text-align: center;
+}
+#user input#user-name-input:focus {
+    outline: none;
+}
+#user button {
+    width: 180px;
+    height: 50px;
+    position: absolute;
+    bottom: -65px;
+    background: none;
+    border: 2px solid #fff;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+#user button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transition: 0.3s;
+}
+#user #greeting {
+    transform: translateX(35px);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+#user .menu {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    padding-top: 3px;
+    border-radius: 35px;
+    font-size: 18px;
+    cursor: pointer;
+    opacity: 0;
+}
+#user .menu:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+#user:hover .menu {
+    transition: 0.3s;
+    opacity: 1;
+}

@@ -4,6 +4,7 @@ import React, {useEffect, useState} from "react";
 function Clock() {
     const [date, setDate] = useState(new Date());
 
+    // 1초마다 시간 갱신하기
     useEffect(() => {
         const timerID = setInterval(() => tick(), 1000);
 
@@ -12,13 +13,19 @@ function Clock() {
         }
     });
 
+    // 초 마다 새로운 데이터 값 가져오기
     function tick() {
         setDate(new Date());
     }
 
     return (
         <header>
-            <h1>현재 시간은 {date.toLocaleTimeString()}</h1>
+            <div id="clock">{date.toLocaleTimeString('ko-KR', {
+                hour12: false,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+            })}</div>
         </header>
     )
 }
