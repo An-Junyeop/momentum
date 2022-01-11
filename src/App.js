@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import Store from "./Store";
 import Clock from "./components/Clock/Clock";
 import User from "./components/User/User";
-import Todo from "./components/ToDo/Todo";
+import Todo from "./components/Todo/Todo";
 
 function App() {
     const [imageID] = useState(Math.floor(Math.random() * 18) + 1);
