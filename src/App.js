@@ -1,11 +1,12 @@
 import "./css/App.css";
 import React, {useEffect, useState} from "react";
 import Store from "./Store";
-import Clock from "./components/Clock";
-import User from "./components/User";
+import Clock from "./components/Clock/Clock";
+import User from "./components/User/User";
+import Todo from "./components/ToDo/Todo";
 
 function App() {
-    const [imageID, setImageID] = useState(Math.floor(Math.random() * 18) + 1);
+    const [imageID] = useState(Math.floor(Math.random() * 18) + 1);
     const [storageName, setStorageName] = useState(Store.getStorageName());
 
     // 배경화면 랜덤 지정
@@ -29,6 +30,7 @@ function App() {
                   <User
                       storageName={storageName}
                       onButtonClick={onButtonClick}/>
+                  {storageName && <Todo />}
               </div>
           </div>
       </>
