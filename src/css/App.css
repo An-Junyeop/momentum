@@ -9,8 +9,17 @@
     background-repeat: no-repeat;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.25);
+}
+
 /* Clock */
-div#clock {
+#clock {
     color: #fff;
     font-size: 140px;
     letter-spacing: -2px;
@@ -43,7 +52,7 @@ div#clock {
     font-size: 40px;
     text-align: center;
 }
-#user input#user-name-input:focus {
+input:focus {
     outline: none;
 }
 #user button {
@@ -83,8 +92,85 @@ div#clock {
 }
 #user .menu:hover {
     background: rgba(255, 255, 255, 0.2);
+    color: aquamarine;
 }
 #user:hover .menu {
     transition: 0.3s;
     opacity: 1;
+}
+
+/* To do */
+#todo-form #todo-input {
+    max-width: 315px;
+    height: 40px;
+    margin: 7px 0 18px;
+    padding: 5px 0 8px 0;
+    background: none;
+    border: none;
+    border-bottom: 3px solid #fff;
+    color: #fff;
+    font-size: 32px;
+    text-align: center;
+}
+
+#todo-list {
+    height: 250px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+#todo-list::-webkit-scrollbar {
+    width: 10px;
+}
+#todo-list::-webkit-scrollbar-thumb {
+    background-color: rgba(204, 204, 204, 0.3);
+    border-radius: 5px;
+    background-clip: padding-box;
+    border: 1px solid transparent;
+}
+#todo-list::-webkit-scrollbar-track {
+    background: none;
+}
+
+#todo-list .todo-item {
+    min-width: 315px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    color: #fff;
+    font-size: 26px;
+    text-align: center;
+}
+#todo-list .todo-item:last-child {
+    margin-bottom: 0;
+}
+#todo-list .todo-item .todo-item-done {
+    text-decoration-line: line-through;
+}
+#todo-list .todo-item input[type='checkbox'] {
+    display: none;
+}
+#todo-list .todo-item .todo-checkbox {
+    margin-right: 10px;
+    cursor: pointer;
+}
+#todo-list .todo-item .todo-checkbox:hover {
+    color: aquamarine;
+}
+#todo-list .todo-item .todo-remove {
+    width: 27px;
+    height: 27px;
+    padding: 2px;
+    border-radius: 27px;
+    cursor: pointer;
+    opacity: 0;
+}
+#todo-list .todo-item:hover .todo-remove {
+    transition: 0.3s;
+    opacity: 1;
+}
+#todo-list .todo-item .todo-remove:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: aquamarine;
 }

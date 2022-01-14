@@ -6,7 +6,7 @@ function UserForm({onButtonClick}) {
 
     /* 폼 서밋 핸들러
     * 입력된 이름을 저장한다 */
-    const handleFormSubmit = () => {
+    const handleSubmitUserForm = () => {
         if(name.trim().length) {
             onButtonClick(name);
         } else {
@@ -16,7 +16,7 @@ function UserForm({onButtonClick}) {
     }
 
     return (
-        <form onSubmit={handleFormSubmit}>
+        <form onSubmit={handleSubmitUserForm}>
             <div>Hello, What's your name?</div>
             <input id="user-name-input"
                    type="text"
@@ -24,7 +24,7 @@ function UserForm({onButtonClick}) {
                    onChange={(e) => setName(e.target.value)}
             />
             {name !== '' &&
-                <button onClick={handleFormSubmit}>
+                <button onClick={handleSubmitUserForm}>
                     Continue
                 </button>
             }
