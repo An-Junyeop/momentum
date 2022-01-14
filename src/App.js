@@ -6,7 +6,7 @@ import User from "./components/User/User";
 import Todo from "./components/Todo/Todo";
 
 function App() {
-    const [imageID] = useState(Math.floor(Math.random() * 18) + 1);
+    const [imageID] = useState(Math.floor(Math.random() * 17) + 1);
     const [storageName, setStorageName] = useState(Store.getStorageName());
 
     // 배경화면 랜덤 지정
@@ -23,17 +23,18 @@ function App() {
     }
 
     return (
-      <>
-          <div id="app">
-              <div className="container">
-                  {storageName && <Clock />}
-                  <User
-                      storageName={storageName}
-                      onButtonClick={onButtonClick}/>
-                  {storageName && <Todo />}
-              </div>
-          </div>
-      </>
+        <>
+            <div id="app">
+                <div className="container">
+                    {storageName && <Clock/>}
+                    <User
+                        storageName={storageName}
+                        onButtonClick={onButtonClick}
+                    />
+                    {storageName && <Todo/>}
+                </div>
+            </div>
+        </>
 );
 }
 
