@@ -3,17 +3,15 @@ const LIST = "todoList";
 
 class Store {
     constructor(localStorage) {
-
         this.localStorage = localStorage;
-        if(this.localStorage.getItem(USERNAME) === "" && this.localStorage.getItem(USERNAME) === null){
+
+        if(this.localStorage.getItem(USERNAME) === "" || this.localStorage.getItem(USERNAME) === null){
             this.localStorage.setItem(USERNAME, "");
         }
 
-        if(this.localStorage.getItem(USERNAME) === "" && this.localStorage.getItem(USERNAME) === null) {
+        if(this.localStorage.getItem(LIST) === "" || this.localStorage.getItem(LIST) === null) {
             this.localStorage.setItem(LIST, JSON.stringify([]));
         }
-
-        console.log(this.localStorage);
     }
 
     // localStorage에 name 값 저장하기
