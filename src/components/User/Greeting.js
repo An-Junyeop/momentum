@@ -8,7 +8,7 @@ function Greeting({storageName, onButtonClick}) {
     * 이름을 초기화 한다 */
     const handleClickResetButton = () => {
         onButtonClick("");
-    }
+    };
 
     return (
         <div id="greeting">

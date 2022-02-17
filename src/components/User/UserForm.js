@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useCallback, useState} from "react";
 
 /* 사용자 이름 입력 폼 */
 function UserForm({onButtonClick}) {
@@ -13,7 +13,11 @@ function UserForm({onButtonClick}) {
             alert("이름을 다시 입력해주세요.");
             setName("");
         }
-    }
+    };
+
+    const onChangeInput = useCallback(e => {
+        setName(() => e.target.value);
+    }, []);
 
     return (
         <form onSubmit={handleSubmitUserForm}>
@@ -21,7 +25,7 @@ function UserForm({onButtonClick}) {
             <input id="user-name-input"
                    type="text"
                    value={name}
-                   onChange={(e) => setName(e.target.value)}
+                   onChange={onChangeInput}
             />
             {name !== '' &&
                 <button onClick={handleSubmitUserForm}>

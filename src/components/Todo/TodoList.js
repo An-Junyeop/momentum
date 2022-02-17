@@ -7,6 +7,7 @@ function TodoList({
                       onToggleCheckbox,
                       onClickRemoveButton
 }) {
+
     return (
         <ul id="todo-list">
             {todoList.map(item =>
@@ -21,4 +22,4 @@ function TodoList({
     );
 }
 
-export default TodoList;
+export default React.memo(TodoList);

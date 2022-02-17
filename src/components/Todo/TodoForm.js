@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 
 /* To Do 입력 폼 */
 function TodoForm({onSubmit}) {
@@ -6,11 +6,16 @@ function TodoForm({onSubmit}) {
 
     /* 폼 서밋 핸들러
     * 입력 된 값을 저장한다 */
-    const handleSubmitTodoForm = (e) => {
+    const handleSubmitTodoForm = useCallback( (e) => {
         e.preventDefault();
         onSubmit(value);
         setValue("");
-    }
+    }, [onSubmit, value]);
+
+    const onChangeInput = useCallback(e => {
+        setValue(() => e.target.value);
+    }, []);
+
 
     return (
         <form
@@ -19,10 +24,10 @@ function TodoForm({onSubmit}) {
             <input
                 id="todo-input"
                 value={value}
-                onChange={(e) => {setValue(e.target.value);}}
+                onChange={onChangeInput}
             />
         </form>
     );
 }
 
-export default TodoForm;
+export default React.memo(TodoForm);

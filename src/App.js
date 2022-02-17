@@ -18,9 +18,9 @@ function App() {
 
     // 입력된 이름을 localStorage에 저장하기
     const onButtonClick = (value) => {
-        Store.setStorageName(value);
         setStorageName(value);
-    }
+        Store.setStorageName(value);
+    };
 
     return (
         <>

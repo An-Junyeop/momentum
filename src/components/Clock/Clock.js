@@ -14,9 +14,9 @@ function Clock() {
     });
 
     // 초 마다 새로운 데이터 값 가져오기
-    function tick() {
+    const tick = () => {
         setDate(new Date());
-    }
+    };
 
     return (
         <header>
