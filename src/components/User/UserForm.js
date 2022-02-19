@@ -1,33 +1,29 @@
 import React, {useCallback, useState} from "react";
+import useInputs from "../../hooks/useInputs";
 
 /* 사용자 이름 입력 폼 */
 function UserForm({onButtonClick}) {
-    const [name, setName] = useState("");
-
+    const [value, onChange, reset] = useInputs("");
     /* 폼 서밋 핸들러
     * 입력된 이름을 저장한다 */
     const handleSubmitUserForm = () => {
-        if(name.trim().length) {
-            onButtonClick(name);
+        if(value.trim().length) {
+            onButtonClick(value);
         } else {
             alert("이름을 다시 입력해주세요.");
-            setName("");
+            reset();
         }
     };
-
-    const onChangeInput = useCallback(e => {
-        setName(() => e.target.value);
-    }, []);
 
     return (
         <form onSubmit={handleSubmitUserForm}>
             <div>Hello, What's your name?</div>
             <input id="user-name-input"
                    type="text"
-                   value={name}
-                   onChange={onChangeInput}
+                   value={value}
+                   onChange={onChange}
             />
-            {name !== '' &&
+            {value !== '' &&
                 <button onClick={handleSubmitUserForm}>
                     Continue
                 </button>
