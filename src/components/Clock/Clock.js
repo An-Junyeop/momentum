@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from 'react';
 
 /* 화면 중앙 시계 */
 function Clock() {
@@ -10,7 +10,7 @@ function Clock() {
 
         return () => {
             clearInterval(timerID);
-        }
+        };
     });
 
     // 초 마다 새로운 데이터 값 가져오기
@@ -20,14 +20,16 @@ function Clock() {
 
     return (
         <header>
-            <div id="clock">{date.toLocaleTimeString('ko-KR', {
-                hour12: false,
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-            })}</div>
+            <div id="clock">
+                {date.toLocaleTimeString('ko-KR', {
+                    hour12: false,
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                })}
+            </div>
         </header>
-    )
+    );
 }
 
 export default Clock;
