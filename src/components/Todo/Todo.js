@@ -1,4 +1,4 @@
-import React, { useCallback, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 import Store from '../../Store';
@@ -27,53 +27,19 @@ function reducer(state, action) {
     }
 }
 
+export const TodoDispatch = React.createContext(null);
+
 /* To do */
 function Todo() {
     const [state, dispatch] = useReducer(reducer, {
         todoList: Store.getTodoList(),
     });
 
-    /* To do 아이템 추가 */
-    const addTodoItem = useCallback((content) => {
-        const todoItem = {
-            id: Store.getTodoListNextID(),
-            content: content,
-            done: false,
-        };
-        dispatch({
-            type: 'CREATE_ITEM',
-            item: todoItem,
-        });
-        Store.addTodoItem(todoItem);
-    }, []);
-
-    /* 체크박스 클릭하여 바뀐 값 수정 */
-    const onToggleCheckbox = useCallback((id) => {
-        dispatch({
-            type: 'TOGGLE_ITEM',
-            id: id,
-        });
-        Store.updateTodoList(id);
-    }, []);
-
-    /* To do 아이템 삭제 */
-    const onClickRemoveButton = useCallback((id) => {
-        dispatch({
-            type: 'REMOVE_ITEM',
-            id: id,
-        });
-        Store.removeTodoItem(id);
-    }, []);
-
     return (
-        <>
-            <TodoForm onSubmit={addTodoItem} />
-            <TodoList
-                todoList={state.todoList}
-                onToggleCheckbox={onToggleCheckbox}
-                onClickRemoveButton={onClickRemoveButton}
-            />
-        </>
+        <TodoDispatch.Provider value={dispatch}>
+            <TodoForm />
+            <TodoList todoList={state.todoList} />
+        </TodoDispatch.Provider>
     );
 }
 export default Todo;

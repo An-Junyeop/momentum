@@ -1,23 +1,28 @@
-import React, { useCallback } from 'react';
+import React, { useContext } from 'react';
 import useInputs from '../../hooks/useInputs';
+import { TodoDispatch } from './Todo';
+import Store from '../../Store';
 
 /* To Do 입력 폼 */
-function TodoForm({ onSubmit }) {
+function TodoForm() {
     const [value, onChange, reset] = useInputs('');
-
-    /* 폼 서밋 핸들러
-     * 입력 된 값을 저장한다 */
-    const handleSubmitTodoForm = useCallback(
-        (e) => {
-            e.preventDefault();
-            onSubmit(value);
-            reset();
-        },
-        [onSubmit, reset, value],
-    );
+    const dispatch = useContext(TodoDispatch);
 
     return (
-        <form id="todo-form" onSubmit={handleSubmitTodoForm}>
+        <form
+            id="todo-form"
+            onSubmit={(e) => {
+                e.preventDefault();
+                const todoItem = {
+                    id: Store.getTodoListNextID(),
+                    content: value,
+                    done: false,
+                };
+                dispatch({ type: 'CREATE_ITEM', item: todoItem });
+                Store.addTodoItem(todoItem);
+                reset();
+            }}
+        >
             <input
                 value={value}
                 onChange={onChange}
