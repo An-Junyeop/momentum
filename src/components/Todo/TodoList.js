@@ -2,16 +2,11 @@ import React from 'react';
 import TodoItem from './TodoItem';
 
 /* To do 목록 */
-function TodoList({ todoList, onToggleCheckbox, onClickRemoveButton }) {
+function TodoList({ todoList }) {
     return (
         <ul id="todo-list">
             {todoList.map((item) => (
-                <TodoItem
-                    todo={item}
-                    key={item.id}
-                    onToggleCheckbox={onToggleCheckbox}
-                    onClickRemoveButton={onClickRemoveButton}
-                />
+                <TodoItem todo={item} key={item.id} />
             ))}
         </ul>
     );
