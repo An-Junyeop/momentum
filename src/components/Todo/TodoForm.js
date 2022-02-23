@@ -3,7 +3,6 @@ import useInputs from '../../hooks/useInputs';
 
 /* To Do 입력 폼 */
 function TodoForm({ onSubmit }) {
-    // const [value, setValue] = useState("");
     const [value, onChange, reset] = useInputs('');
 
     /* 폼 서밋 핸들러
@@ -19,7 +18,12 @@ function TodoForm({ onSubmit }) {
 
     return (
         <form id="todo-form" onSubmit={handleSubmitTodoForm}>
-            <input value={value} onChange={onChange} id="todo-input" />
+            <input
+                value={value}
+                onChange={onChange}
+                id="todo-input"
+                placeholder="할 일을 입력 후 Enter"
+            />
         </form>
     );
 }

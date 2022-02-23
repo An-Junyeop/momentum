@@ -101,7 +101,7 @@ input:focus {
 
 /* To do */
 #todo-form #todo-input {
-    max-width: 315px;
+    max-width: 400px;
     height: 40px;
     margin: 7px 0 18px;
     padding: 5px 0 8px 0;
@@ -112,7 +112,6 @@ input:focus {
     font-size: 32px;
     text-align: center;
 }
-
 #todo-list {
     height: 250px;
     max-height: 250px;
